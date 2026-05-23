@@ -1,0 +1,158 @@
+/* --- 基礎設定 & 色彩變數 --- */
+:root {
+  --bg-light: #fdfbf7;      /* 溫暖的米白色背景 */
+  --text-main: #5c5c5c;     /* 柔和的深灰色文字 */
+  --primary: #a3c9b8;       /* 療癒薄荷綠 */
+  --primary-hover: #8cbfa9;
+  --secondary: #f0c9c9;     /* 溫柔櫻花粉 */
+  --card-bg: #ffffff;
+  --border-radius: 16px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 支援深色模式 (自動適應手機設定) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-light: #2c2c2c;
+    --text-main: #eaeaea;
+    --card-bg: #3c3c3c;
+    --primary: #6b8f7f;
+    --secondary: #b58c8c;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', Arial, '微軟正黑體', sans-serif;
+}
+
+body {
+  background-color: var(--bg-light);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.screen {
+  width: 100%;
+  max-width: 600px; /* 手機優先，限制最大寬度 */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hidden { display: none !important; }
+
+/* --- 卡片與按鈕 --- */
+.card {
+  background: var(--card-bg);
+  padding: 30px 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-main);
+  outline: none;
+}
+input:focus { border-color: var(--primary); }
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-secondary { background: var(--secondary); color: #fff; width: auto;}
+.btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); width: auto;}
+
+/* --- 標頭與導覽 --- */
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.encouragement {
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  color: var(--primary);
+}
+
+#breadcrumb {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: #888;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.nav-item { cursor: pointer; padding: 5px 10px; border-radius: 8px; background: var(--card-bg); }
+.nav-item:hover { background: var(--primary); color: white; }
+
+/* --- 列表與進度條 --- */
+.list-item {
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.progress-bar-bg {
+  width: 100px;
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+/* --- 任務項目 --- */
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card-bg);
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow);
+}
+.task-item.completed { opacity: 0.6; text-decoration: line-through; }
+.task-checkbox { width: 24px; height: 24px; cursor: pointer; accent-color: var(--primary); }
+.task-input-container { display: flex; gap: 10px; margin-bottom: 20px; }
