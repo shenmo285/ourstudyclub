@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>療癒共讀小天地 🌱</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+</head>
+<body>
+  <div id="auth-screen" class="screen">
+    <div class="card">
+      <h1 id="auth-title">建立我們的讀書房間 🏡</h1>
+      <input type="text" id="room-name" placeholder="輸入房間名稱 (例如: 高中生物衝刺)">
+      <input type="password" id="room-password" placeholder="設定或輸入房間密碼">
+      <button id="auth-btn" class="btn-primary">進入房間 ✨</button>
+      <p id="auth-message" class="message"></p>
+    </div>
+  </div>
+
+  <div id="app-screen" class="screen hidden">
+    <header>
+      <h2 id="current-room-name">房間名稱</h2>
+      <button id="low-battery-btn" class="btn-secondary">🔋 低電量模式</button>
+      <button id="share-btn" class="btn-outline">🔗 分享網址</button>
+    </header>
+
+    <div id="encouragement-box" class="encouragement">
+      今天也一起前進了一點點！慢慢來也沒關係 🌱
+    </div>
+
+    <nav id="breadcrumb">
+      <span class="nav-item" data-level="year">2026 總計畫</span>
+      <span id="nav-month" class="nav-item hidden" data-level="month"></span>
+      <span id="nav-week" class="nav-item hidden" data-level="week"></span>
+      <span id="nav-day" class="nav-item hidden" data-level="day"></span>
+    </nav>
+
+    <main id="content-area">
+      </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
